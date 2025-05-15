@@ -22,7 +22,5 @@ export default function ProtectedRoute({ children }: Props) {
     }
   }, [router])
 
-  // While the effect runs on first render you might briefly see children,
-  // but in practice this is almost instantaneous.
   return <>{children}</>
 }
