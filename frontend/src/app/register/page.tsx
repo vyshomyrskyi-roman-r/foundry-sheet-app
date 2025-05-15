@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import router from "next/router";
 
 interface FormState {
   username: string;
@@ -14,9 +15,14 @@ interface FormState {
 }
 
 export default function RegisterPage() {
-  const [form, setForm] = useState<FormState>({ username: '', email: '', password: '', confirmPassword: '' });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [form, setForm] = useState<FormState>({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,44 +30,75 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
     if (form.password !== form.confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
     try {
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: form.username, email: form.email, password: form.password }),
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: form.username,
+          email: form.email,
+          password: form.password,
+        }),
       });
       if (!res.ok) {
         const data = await res.json();
-        setError(data.error || 'Registration failed');
+        setError(data.error || "Registration failed");
         return;
       }
-      setSuccess('Registration successful!');
-      setForm({ username: '', email: '', password: '', confirmPassword: '' });
+      setSuccess("Registration successful!");
+      setForm({ username: "", email: "", password: "", confirmPassword: "" });
+      router.push("/login");
     } catch (err) {
       console.error(err);
-      setError('Unexpected error');
+      setError("Unexpected error");
     }
   };
 
   return (
-
     <div>
       <div className="absolute top-4 left-4">
         <Link href="/login">
           <ArrowLeft className="w-8 h-8 text-white hover:opacity-80" />
         </Link>
       </div>
-      <form onSubmit={handleSubmit} className="relative mx-auto mt-24 w-full max-w-sm bg-[#b49f84] bg-opacity-90 p-8 rounded-[36px] space-y-4 backdrop-blur" style={{ marginTop: '300px' }}>
-        <Input name="username" placeholder="Username" value={form.username} onChange={handleChange} />
-        <Input name="email" placeholder="E-mail" type="email" value={form.email} onChange={handleChange} />
-        <Input name="password" placeholder="Password" type="password" value={form.password} onChange={handleChange} />
-        <Input name="confirmPassword" placeholder="Repeat password" type="password" value={form.confirmPassword} onChange={handleChange} />
+      <form
+        onSubmit={handleSubmit}
+        className="relative mx-auto mt-24 w-full max-w-sm bg-[#b49f84] bg-opacity-90 p-8 rounded-[36px] space-y-4 backdrop-blur"
+        style={{ marginTop: "300px" }}
+      >
+        <Input
+          name="username"
+          placeholder="Username"
+          value={form.username}
+          onChange={handleChange}
+        />
+        <Input
+          name="email"
+          placeholder="E-mail"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+        />
+        <Input
+          name="password"
+          placeholder="Password"
+          type="password"
+          value={form.password}
+          onChange={handleChange}
+        />
+        <Input
+          name="confirmPassword"
+          placeholder="Repeat password"
+          type="password"
+          value={form.confirmPassword}
+          onChange={handleChange}
+        />
 
         {error && <p className="text-red-500 text-center">{error}</p>}
         {success && <p className="text-green-200 text-center">{success}</p>}

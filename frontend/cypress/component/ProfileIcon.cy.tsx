@@ -1,7 +1,7 @@
 import React from 'react'
 import ProfileIcon from '../../components/ProfileIcon'
 import { mount } from 'cypress/react'
-import { MemoryRouter } from 'react-router-dom' // or use next/router mock
+import { MemoryRouter } from "react-router-dom";
 
 describe('ProfileIcon', () => {
   it('renders and links to /profile', () => {

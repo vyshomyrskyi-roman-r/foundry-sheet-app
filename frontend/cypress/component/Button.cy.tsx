@@ -7,9 +7,7 @@ describe('Button component', () => {
     const onClick = cy.stub().as('onClick')
     mount(<Button onClick={onClick}>Press me</Button>)
 
-    cy.contains('Press me')          // button text
-      .should('be.visible')
-      .click()
+    cy.contains("Press me").should("be.visible").click();
 
     cy.get('@onClick').should('have.been.calledOnce')
   })
