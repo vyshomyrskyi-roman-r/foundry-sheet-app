@@ -12,6 +12,7 @@ console.log('authRoutes:', authRoutes);
 dotenv.config();
 
 const app = express();
+export default app;
 app.use(cors({
   origin: ['http://localhost:3000', 'http://frontend:3000']
 }));

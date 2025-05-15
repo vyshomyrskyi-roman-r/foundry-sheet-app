@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "e2e": "cypress open",
+    "e2e:run": "cypress run",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -18,13 +22,24 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cypress": "^14.3.3",
+    "cypress-jest-adapter": "^0.1.1",
+    "cypress-localstorage-commands": "^2.2.7",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "next-router-mock": "^1.0.2",
     "tailwindcss": "^4",
+    "ts-jest": "^29.3.3",
     "typescript": "^5"
   }
 }
