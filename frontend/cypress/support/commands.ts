@@ -37,3 +37,4 @@
 // }
 import '@cypress/jest-adapter/hooks'
 import 'cypress-localstorage-commands'
+import "./commands";
