@@ -19,6 +19,7 @@ describe('Auth flow', () => {
   })
 
   it('логіниться і бачить головну сторінку', () => {
+    cy.visit("/login");
     cy.get('input[name=usernameOrEmail]').type(user.username)
     cy.get('input[name=password]').type(user.password)
     cy.contains('button', 'Log in').click()
