@@ -19,11 +19,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0`}>
-        <div className="fixed inset-0 bg-fixed bg-center bg-cover -z-10" style={{ backgroundImage: "url('/background.jpg')" }}>
-          {children}
-        </div>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0`}
+      >
+        <div
+          className="fixed inset-0 bg-fixed bg-center bg-cover -z-10"
+          style={{ backgroundImage: "url('/background.jpg')", backgroundSize: "cover", backgroundRepeat: "no-repeat"}}
+        />
+        {children}
       </body>
     </html>
-  )
+  );
 }

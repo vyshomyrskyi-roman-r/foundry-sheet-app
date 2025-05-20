@@ -3,14 +3,15 @@
 import ProtectedRoute from '../../components/ProtectedRoute'
 import ProfileIcon     from '../../components/ProfileIcon'
 import GameCard        from '../../components/GameCard'
-import Link            from 'next/link'
+import CounterButton from "../../components/CounterButton";
+import Link from "next/link";
 
 export default function HomePage() {
   const games = [
-    { id: 1, title: 'Name of game' },
-    { id: 2, title: 'Name of game' },
-    { id: 3, title: 'Name of game' },
-  ]
+    { id: 1, title: "Name of game" },
+    { id: 2, title: "Name of game" },
+    { id: 3, title: "Name of game" },
+  ];
 
   return (
     <ProtectedRoute>
@@ -40,7 +41,8 @@ export default function HomePage() {
         >
           Join +
         </Link>
+        <CounterButton>counter </CounterButton>
       </main>
     </ProtectedRoute>
-  )
+  );
 }
