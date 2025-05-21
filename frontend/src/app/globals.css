@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.nav_blok{
+  display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    margin: 10px 10px;
+    position: absolute;
+    top: 0px;
+}
+
+
+.log_in{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log_in .main_blok{
+  background-color: #ab9d86;
+    padding: 43px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 31px; 
+    width: 50%;
+    border-radius: 50px;
+}
+
+.log_in .bak_arrow{
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

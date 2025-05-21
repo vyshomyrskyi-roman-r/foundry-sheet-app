@@ -42,7 +42,7 @@ export default function LoginPage() {
       }
 
       Cookies.set('token', data.token, { expires: 1, path: '/' });
-      console.log('🍪 token set, navigating…');
+      console.log("token set, navigating…");
       await router.push('/');
     } catch (err) {
       console.error('unexpected error:', err);
@@ -51,16 +51,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen">
-      <div style={{ marginTop: '10px', marginLeft: '10px'}}>
+    <div className="relative log_in">
+      <div className="bak_arrow">
         <Link href="/register">
           <ArrowLeft className="w-8 h-8 text-white hover:opacity-80" />
         </Link>
       </div>
       <form
         onSubmit={handleSubmit}
-        className="relative mx-auto mt-24 w-full max-w-sm bg-[#b49f84] bg-opacity-90 p-8 rounded-[36px] space-y-4 backdrop-blur"
-        style={{ marginTop: '300px' }}
+        className="main_blok"
+        style={{ marginTop: "300px" }}
       >
         <Input
           name="usernameOrEmail"
@@ -81,8 +81,8 @@ export default function LoginPage() {
 
         <Button type="submit">Log in</Button>
 
-        <p className="text-center text-white">
-          or you can{' '}
+        <p className="text-center text-white" style={{ marginTop: "-20px" }}>
+          or you can{" "}
           <Link href="/register" className="underline hover:text-gray-200">
             register
           </Link>

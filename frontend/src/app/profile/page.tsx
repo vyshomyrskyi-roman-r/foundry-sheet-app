@@ -22,26 +22,30 @@ export default function ProfilePage() {
 
   return (
     <div className="relative min-h-screen">
-
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="absolute top-4 left-4">
-        <Link href="/">
-          <ArrowLeft className="w-8 h-8 text-white hover:opacity-80" />
-        </Link>
-      </div>
+        <div className="nav_blok">
+          <div>
+            <Link href="/">
+              <ArrowLeft className="w-8 h-8 text-white hover:opacity-80" />
+            </Link>
+          </div>
 
-      <div className="absolute top-4 right-4">
-        <Link href="/logout">
-          <LogOut className="w-8 h-8 text-white hover:opacity-80" />
-        </Link>
-      </div>
-
-        <div className="mx-auto max-w-lg bg-[#b49f84] bg-opacity-90 p-8 rounded-lg">
+          <div>
+            <Link href="/logout">
+              <LogOut className="w-8 h-8 text-white hover:opacity-80" />
+            </Link>
+          </div>
+        </div>
+        <div className="bg-[#b49f84] p-8 rounded-lg">
           <div className="flex items-center space-x-4">
             <div className="w-32 h-32 rounded-full border-4 border-white" />
             <div className="text-white">
-              <p><strong>Username:</strong> {user.username}</p>
-              <p><strong>E-mail:</strong> {user.email}</p>
+              <p>
+                <strong>Username:</strong> {user.username}
+              </p>
+              <p>
+                <strong>E-mail:</strong> {user.email}
+              </p>
               <Link href="/profile/edit">
                 <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full">
                   Edit info
